@@ -1,0 +1,11 @@
+
+.topBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 3vh;
+    justify-content: space-evenly;
+    row-gap: 20px;
+  }
+

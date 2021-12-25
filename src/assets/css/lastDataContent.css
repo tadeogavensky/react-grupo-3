@@ -1,0 +1,20 @@
+.lastDataContent{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-right: 5vw;
+    border: black solid 1px;
+
+}
+
+.lastDataContent .content{
+    border-top: 1px solid black;
+}
+
+.content .btnDetail{
+    background-color: #ab191f;
+    color: white;
+    text-align: center;
+}

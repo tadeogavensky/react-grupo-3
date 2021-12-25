@@ -1,0 +1,20 @@
+.sideBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: start;
+    border-right: white 1px solid;
+    background-color: #ab191f;
+    height: 100vh;
+  }
+  
+  .sideBar img{
+    width: 12vw;
+    padding-top: 3vh;
+    padding-right: 0.5vw;
+    padding-left: 0.5vw;
+    border-bottom: 2px white solid;
+    padding-bottom: 2vh;
+  }
+  
