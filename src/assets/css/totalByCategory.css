@@ -1,0 +1,49 @@
+.totalByCategory{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.totalByCategory .category{
+    background-color: #ab191f;
+    color: white;
+    border-radius: 4px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    margin-bottom: 1vh;
+}
+
+.totalByCategory .quantity{
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    margin-bottom: 1vh;
+}
+
+.totalByCategory .category{
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    width: 10vw;
+    padding: 10px 10px 10px;
+    padding-right: 40px;
+    border-radius: 3px;
+    
+}
+
+.totalByCategory .quantity{
+    
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    width: 0vw;
+    max-height: 2vh;
+    padding: 10px 10px 10px;
+    padding-right: 40px;
+    border-radius: 3px;
+}

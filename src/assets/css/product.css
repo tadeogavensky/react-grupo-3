@@ -1,0 +1,16 @@
+.product{
+    background-color: #ab191f;
+    color: white;
+    border-radius: 4px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    margin-bottom: 1vh;
+    width: 15vw;
+}
+
+.product p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 1vw;
+}

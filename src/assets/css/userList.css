@@ -1,0 +1,10 @@
+
+.usersList{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5vw;
+}
+.usersList .title{
+    text-align: start;
+    font-size: 12px;
+}

@@ -33,10 +33,10 @@ class TopBar extends Component {
   render() {
     return (
       <div className="topBar">
-        <DataCard nombre={"Productos en base de datos"} cantidad={this.state.productLength} icono={guitarIcon} />
-        <DataCard nombre={"Categorías en base de datos"} cantidad={this.state.categorieLength} icono={chartIcon} />
-        <DataCard nombre={"Marcas en base de datos"} cantidad={this.state.brandLength} icono={brandIcon}/>
-        <DataCard nombre={"Usuarios en base de datos"} cantidad={this.state.userLength} icono={userIcon}/>
+        <DataCard nombre={"Productos en la base de datos"} cantidad={this.state.productLength} icono={guitarIcon} />
+        <DataCard nombre={"Categorías en la base de datos"} cantidad={this.state.categorieLength} icono={chartIcon} />
+        <DataCard nombre={"Marcas en la base de datos"} cantidad={this.state.brandLength} icono={brandIcon}/>
+       {/*  <DataCard nombre={"Usuarios en la base de datos"} cantidad={this.state.userLength} icono={userIcon}/> */}
       </div>
     );
   }

@@ -1,20 +1,45 @@
 .lastDataContent{
     display: flex;
     flex-direction: column;
-    padding-left: 5vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    padding-right: 5vw;
-    border: black solid 1px;
+    font-size: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
 }
 
 .lastDataContent .content{
-    border-top: 1px solid black;
+    background-color: white;
+    padding-bottom: 2vh;
+}
+
+.lastDataContent .content img{
+    width: 15vw;
+    padding-top: 2vh;
+    padding-right: 3vw;
+    padding-left: 3vw;
+}
+
+.lastDataContent .content p{
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .content .btnDetail{
     background-color: #ab191f;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    font-size: 20px;
     color: white;
-    text-align: center;
+    border: none;
+    border-radius: 8px;
+    text-align: start;
+}
+
+.lastDataContent .title{
+    border-bottom: 1px solid #e3e6f0;
+    background-color: #f8f9fc;
+    text-align: start;
+    padding-left: 1vw;
+    
 }

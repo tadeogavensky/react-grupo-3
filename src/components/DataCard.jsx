@@ -15,10 +15,12 @@ export const DataCard = (props) => {
 
 DataCard.propTypes={
     nombre: propTypes.string,
-    cantidad: propTypes.number
+    cantidad: propTypes.number,
+    icono: propTypes.string
 }
 
 DataCard.defaultProps={
     nombre: 'Default',
-    cantidad: null
+    cantidad: 0,
+    icono: ''
 }

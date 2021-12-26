@@ -1,15 +1,22 @@
-import React from 'react'
-import { Header } from './Header'
-import  TopBar  from './TopBar'
-import '../assets/css/contentWrapper.css'
-import lastDataWrapper from './lastDataWrapper'
+import React from "react";
+import { Header } from "./Header";
+import TopBar from "./TopBar";
+import MiddleWrapper from "./MiddleWrapper";
+import ProductsList from "./ProductsList";
+import TotalByCategoryContent from "./TotalByCategoryContent";
+import UserList from "./UserList";
+import { Footer } from "./Footer";
+import "../assets/css/contentWrapper.css";
+
 export const ContentWrapper = () => {
-    return (
-        <div className='contentWrapper'>
-            <Header />
-            <TopBar />
-            <lastDataWrapper/>
-          
-        </div>
-    )
-}
+  return (
+    <div className="contentWrapper">
+      <Header />
+      <TopBar />
+      <MiddleWrapper />
+      <ProductsList />
+      <UserList/>
+      <Footer/>
+    </div>
+  );
+};
