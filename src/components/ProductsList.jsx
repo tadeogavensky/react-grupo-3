@@ -9,6 +9,10 @@ class ProductsList extends Component {
     super();
     this.state = {
       productsList: [],
+      nextProducts: [],
+      nextNextProcucts: [],
+      previousProducts: [],
+      previousPreviousPage: []
       
     };
   }
@@ -19,35 +23,41 @@ class ProductsList extends Component {
         return res.json();
       })
       .then((products) => {
-        console.log(`products`, products);
         this.setState({ productsList: products.data });
+        this.setState({ previousPage: products.meta.previousPage });
+        this.setState({ nextProducts: products.meta.nextPage });
       })
       .catch((error) => console.log(error));
   }
-/* 
-  nextPage() {
-    fetch("http://localhost:4000/api/products/list?page=" + { next })
-      .then((res) => {
-        return res.json();
-      })
-      .then((products) => {
-        console.log(`products`, products);
-        this.setState({ productsList: products.data });
-      })
-      .catch((error) => console.log(error));
-  }
+
   previousPage() {
-    fetch("http://localhost:4000/api/products/list?page=2" + { previous })
+    fetch(this.state.previousPage)
       .then((res) => {
         return res.json();
       })
       .then((products) => {
-        console.log(`products`, products);
+        console.log(`previousProductFound`, products)
         this.setState({ productsList: products.data });
+        this.setState({ previousPage: products.meta.previousPage });
+        this.setState({ nextProducts: products.meta.nextPage });
       })
       .catch((error) => console.log(error));
   }
- */
+  nextPage() {
+    fetch(this.state.nextProducts)
+      .then((res) => {
+        return res.json();
+      })
+      .then((products) => {
+        this.setState({ productsList: products.data});
+        this.setState({ previousPage: products.meta.previousPage });
+        this.setState({ nextProducts: products.meta.nextPage });
+        
+      })
+      .catch((error) => console.log(error));
+  }
+
+
   render() {
     return (
       <div className="productsList">
@@ -55,13 +65,15 @@ class ProductsList extends Component {
           <h1>Productos en la base de datos</h1>
         </div>
         <div className="grid">
+         
           {this.state.productsList.map((product, index) => {
-            return <Product {...product} key={index} />;
+            return <Link to='' key={index}><Product {...product} key={index} /></Link>;
           })}
+    
         </div>
         <div className="meta">
-         <Link to=''>Atrás</Link>
-         <Link to=''>Siguiente</Link>
+         <p onClick={() => this.previousPage()}>Atrás</p>
+         <p onClick={() => this.nextPage()}>Siguiente</p>
         </div>
       </div>
     );

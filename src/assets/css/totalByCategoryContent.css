@@ -4,7 +4,6 @@
     text-align: start;
     background-color: white;
     align-self: center;
-    justify-content: space-evenly;
     height: 100%;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     
@@ -17,8 +16,15 @@
 }
 
 .totalByCategoryContent .title {
-    font-size: 20px;
-    font-weight: 600;
     padding-left: 1vw;
     padding-right: 1vw;
+}
+
+.totalByCategoryContent .title p{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.totalByCategoryContent .content{
+    margin-top: 5vh;
 }

@@ -1,22 +1,26 @@
-.userTable{
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    width: 80vw;
-    margin-bottom: 5vh;
+tbody td {
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    border-right: 1px solid #e3e6f0;
+    border-bottom: 1px solid #e3e6f0;
 }
 
-table{
-    table-layout: fixed;
+#id {
+    width: 3vw;
 }
 
-table #id{
-    width: 5vw;
+#name {
+    width: 8vw;
 }
 
-#head{
-    background-color: black;
-    color: white;
-    width:100%;
-    text-transform: uppercase;
-    border: 1px black solid;    
+#surname {
+    width: 8vw;
+}
+
+#email {
+    width: 2vw;
+}
+
+#detail{
+    width: 2vw;
 }

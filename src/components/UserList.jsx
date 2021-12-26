@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { User } from "./User";
 import "../assets/css/userList.css";
+import {Link} from 'react-router-dom'
 class UserList extends Component {
   constructor() {
     super();
     this.state = {
-      userList: [],
+      usersList: [],
     };
   }
 
@@ -15,8 +16,7 @@ class UserList extends Component {
         return res.json();
       })
       .then((users) => {
-        console.log(`users`, users);
-        this.setState({ userList: users.data.usuarios });
+        this.setState({ usersList: users.data.usuarios });
       })
       .catch((error) => console.log(error));
   }
@@ -26,9 +26,20 @@ class UserList extends Component {
         <div className="title">
           <h1>Usuarios en la base de datos</h1>
         </div>
-        {this.state.userList.map((users, index) => {
-          return <User {...users} key={index} />;
-        })}
+        <table className="userTable">
+          <thead className="tableHead">
+            <tr id="head">
+              <th id="id">Id</th>
+              <th id="name">Nombre</th>
+              <th id="surname">Apellido</th>
+              <th id="email">Email</th>
+              <th id="email">Detalle</th>
+            </tr>
+          </thead>
+          {this.state.usersList.map((user, index) => {
+            return <User {...user} key={index} />;
+          })}
+        </table>
       </div>
     );
   }

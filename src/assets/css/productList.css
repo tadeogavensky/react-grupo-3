@@ -11,8 +11,8 @@
 }
 
 .productsList .grid{
-    padding-top: 2vh;
-    padding-left: 3vw;
+    padding-top: 3vh;
+    padding-left: 3.5vw;
     padding-right: 1vw;
 }
 
@@ -33,8 +33,19 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 2vh;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
 }
+
+.productsList .meta p{
+    color: black;
+    font-size: 20px;
+}
+
+.productsList .meta p:hover{
+    color: #ab191f;
+    cursor: pointer;
+}
+
 
 .productsList a{
     text-decoration: none;

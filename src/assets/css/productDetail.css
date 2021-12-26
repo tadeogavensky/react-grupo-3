@@ -1,0 +1,71 @@
+.productDetailHead {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.productDetailHead .metaHead {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-bottom: 0px;
+}
+
+.productDetailHead .metaHead #categorie {
+    color: black;
+    padding-right: 1vw;
+}
+
+.productDetailHead .metaHead #subcategorie {
+    color: #ab191f;
+    font-weight: bold;
+    padding-left: 1vw;
+}
+
+.productDetailHead #brand {
+    text-transform: uppercase;
+    color: #ab191f;
+    font-weight: bold;
+
+    font-size: 25px;
+}
+
+.productDetailRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+    justify-content: space-evenly;
+}
+
+.productDetailRow img{
+    object-fit: cover;
+    height: 40vh;
+    width: auto;
+    padding-left: 4vw;
+}
+
+.productDetailRow .meta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productDetailRow .meta h1 {
+    color: #ab191f;
+    font-weight: bolder;
+}
+
+.productDetailRow .meta #price{
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.productDetailHead #description{
+    text-align: justify;
+    padding-right: 4vw;
+    padding-left: 4vw;
+}

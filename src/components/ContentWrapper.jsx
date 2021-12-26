@@ -6,6 +6,7 @@ import ProductsList from "./ProductsList";
 import TotalByCategoryContent from "./TotalByCategoryContent";
 import UserList from "./UserList";
 import { Footer } from "./Footer";
+import ProductDetailContent from "./ProductDetailContent";
 import "../assets/css/contentWrapper.css";
 
 export const ContentWrapper = () => {
@@ -14,6 +15,7 @@ export const ContentWrapper = () => {
       <Header />
       <TopBar />
       <MiddleWrapper />
+      <ProductDetailContent/>
       <ProductsList />
       <UserList/>
       <Footer/>

@@ -1,10 +1,46 @@
-
-.usersList{
+.usersList {
     display: flex;
     flex-direction: column;
-    padding-left: 5vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    margin-left: 3vw;
+    margin-right: 3vw;
+
 }
-.usersList .title{
-    text-align: start;
+
+table{
+    border-collapse: collapse;
+}
+
+th {
+    text-align: center;
+}
+
+.usersList .title {
     font-size: 12px;
+    text-align: start;
+    padding-left: 1vw;
+    border-bottom: 1px solid #e3e6f0;
+    background-color: #f8f9fc;
+}
+
+
+.userTable {
+    padding-top: 2vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 2vh;
+}
+
+
+
+.userTable .tableHead th {
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-right: 1px solid #e3e6f0;
+    border-bottom: 1px solid #e3e6f0;
 }

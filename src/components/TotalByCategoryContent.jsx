@@ -17,7 +17,6 @@ class TotalByCategoryContent extends Component {
         return res.json();
       })
       .then((totalByCategory) => {
-        console.log(`totalByCategory`, totalByCategory.data);
         this.setState({ category: totalByCategory.data });
       })
       .catch((error) => console.log(error));
@@ -29,9 +28,11 @@ class TotalByCategoryContent extends Component {
         <div className="title">
           <p>Total de productos por categoría</p>
         </div>
+        <div className="content">
         {this.state.category.map((total, index) => {
           return <TotalByCategory {...total} key={index} />;
         })}
+        </div>
       </div>
     );
   }
