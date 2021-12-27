@@ -34,6 +34,7 @@
     border: none;
     border-radius: 8px;
     text-align: start;
+    cursor: pointer;
 }
 
 .lastDataContent .title{
@@ -41,5 +42,7 @@
     background-color: #f8f9fc;
     text-align: start;
     padding-left: 1vw;
+    padding-top: 0.8vh;
+    padding-bottom: 0.8vh;
     
 }

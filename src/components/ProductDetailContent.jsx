@@ -1,21 +1,30 @@
 import React, { Component } from "react";
 import { ProductDetail } from "./ProductDetail";
-import '../assets/css/productDetailContent.css'
+import "../assets/css/productDetailContent.css";
 class ProductDetailContent extends Component {
   constructor() {
     super();
     this.state = {
-      product: '',
-      brand:'',
-      categorie:'',
-      subcategorie:'',
-      id: 1
+      productsList: [],
+      product: "",
+      brand: "",
+      categorie: "",
+      subcategorie: "",
+      id: 1,
     };
   }
-  
 
   componentDidMount() {
-    fetch(`http://localhost:4000/api/products/detail/${this.state.id}`)
+    fetch(`http://localhost:4000/api/products`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((products) => {
+      this.setState({ productsList: products.data.productos });
+      console.log(`productList`, this.state.productsList)
+    })
+
+    fetch(`http://localhost:4000/api/products/detail/1`)
       .then((res) => {
         return res.json();
       })

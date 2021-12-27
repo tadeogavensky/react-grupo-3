@@ -1,7 +1,8 @@
 import React from "react";
 import propTypes from "prop-types";
 import "../assets/css/user.css";
-import {Link} from 'react-router-dom'
+import {Route,Link, Routes} from 'react-router-dom'
+import UserDetailContent from "./UserDetailContent";
 export const User = (props) => {
   return (
     <React.Fragment>
@@ -11,9 +12,12 @@ export const User = (props) => {
           <td id="name">{props.nombre}</td>
           <td id="surname">{props.apellido}</td>
           <td id="email">{props.email}</td>
-          <td id="detail"><Link to=''>Ver</Link></td>
+          <td id="detail"><Link to={`userDetail/${props.id}`}>Ver</Link></td>
         </tr>
       </tbody>
+      <Routes>
+        <Route path={`userDetail/${props.id}`} params={props.id} component={UserDetailContent}/>
+      </Routes>
     </React.Fragment>
   );
 };

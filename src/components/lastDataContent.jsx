@@ -1,6 +1,9 @@
 import React from "react";
 import propTypes from "prop-types";
+import {Route,Link, Routes} from 'react-router-dom'
+import ProductDetailContent from "./ProductDetailContent";
 import "../assets/css/lastDataContent.css";
+
 
 export const LastDataContent = (props) => {
   return (
@@ -11,7 +14,10 @@ export const LastDataContent = (props) => {
             <div className="content">
                 <img src={props.imagen} alt=""></img>
                 <p className="dataName">{props.nombre}</p>
-                <button className="btnDetail">Detalle del {props.dato}</button>
+               <Link to='/productDetail'><button className="btnDetail">Detalle del {props.dato}</button> </Link>
+               <Routes>
+                  <Route path='/productDetail' component={ProductDetailContent}></Route>
+               </Routes>
             </div>
         </div>
   );

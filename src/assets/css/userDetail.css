@@ -1,0 +1,74 @@
+.userDetail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.userDetail img{
+    object-fit: cover;
+    height: 40vh;
+    width: auto;
+    border-radius: 40px;
+    padding-right: 1vw;
+    padding-left: 1vw;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-self: center;
+    text-align: start;
+    padding-right: 1vw;
+}
+
+.accountData{
+    display: flex;
+    flex-direction: column;
+    margin-right: 2vw;
+}
+
+.personalData{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+
+.userInfo #title{
+    padding-bottom: 2vh;
+    color: #ab191f;
+    font-weight: 600;
+}
+
+
+.accountData p{
+    background-color: #ab191f;
+    color: white;
+    border-radius: 4px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    margin-bottom: 1vh;
+    padding-left: 0.5vw;
+    width: 10vw;
+
+}
+
+
+.personalData p{
+    background-color: #ab191f;
+    color: white;
+    border-radius: 4px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    margin-bottom: 1vh;
+    padding-left: 0.5vw;
+    width: 10vw;
+   
+}
+
