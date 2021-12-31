@@ -8,14 +8,14 @@ export const UserDetailContent = (props) => {
 
 useEffect(() => {
   const fetchData = async () => {
-    const endpoint = `http://localhost:4000/api/users/detail/props`;
+    const endpoint = `http://localhost:4000/api/users/detail/1`;
     fetch(endpoint)
       .then((res) => {
         return res.json();
       })
       .then((user) => {
         setUser(user.data);
-        setRole(user.data.rol.rol);
+        setRole(user.data.rol);
       });
   };
 

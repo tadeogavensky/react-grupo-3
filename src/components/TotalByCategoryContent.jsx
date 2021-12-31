@@ -1,13 +1,56 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { TotalByCategory } from "./TotalByCategory";
 import "../assets/css/totalByCategoryContent.css";
-class TotalByCategoryContent extends Component {
+
+export const TotalByCategoryContent = () => {
+
+  const [category, setCategory] = useState([]);
+  const [role, setRole] = useState({});
+
+useEffect(() => {
+  const fetchData = async () => {
+    const endpoint = `http://localhost:4000/api/products/totalByCategory`;
+    fetch(endpoint)
+      .then((res) => {
+        return res.json();
+      })
+      .then((totalByCategory) => {
+        setCategory(totalByCategory.data)
+      });
+  };
+
+  fetchData();
+}, []);
+
+
+
+return (
+  <div className="totalByCategoryContent">
+    <div className="title">
+      <p>Total de productos por categoría</p>
+    </div>
+    <div className="content">
+    {category.map((total, index) => {
+      return <TotalByCategory {...total} key={index} />;
+    })}
+    </div>
+  </div>
+);
+}
+
+
+
+
+
+
+
+
+
+/* class TotalByCategoryContent extends Component {
   constructor() {
     super();
     this.state = {
       category: [],
-      /* category: "",
-      length: 0, */
     };
   }
 
@@ -39,3 +82,4 @@ class TotalByCategoryContent extends Component {
 }
 
 export default TotalByCategoryContent;
+ */

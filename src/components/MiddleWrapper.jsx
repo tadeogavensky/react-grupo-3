@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { LastDataContent } from "./LastDataContent";
-import TotalByCategoryContent from "./TotalByCategoryContent";
+import {TotalByCategoryContent} from "./TotalByCategoryContent";
 import '../assets/css/middleWrapper.css'
 
 export const MiddleWrapper = () => {
@@ -23,10 +23,20 @@ export const MiddleWrapper = () => {
     fetchData();
   }, []);
 
+  return (
+    <div className="middleWrapper">
+      <LastDataContent
+        dato={"producto"}
+        imagen={productImg}
+        nombre={productName}
+      />
+      <TotalByCategoryContent/>
+    </div>
+  );
 
 
 }
-
+/* 
 class MiddleWrapper extends Component {
   constructor() {
     super();
@@ -62,3 +72,4 @@ class MiddleWrapper extends Component {
 }
 
 export default MiddleWrapper;
+ */

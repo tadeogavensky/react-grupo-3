@@ -1,8 +1,52 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { User } from "./User";
 import "../assets/css/userList.css";
-import {Link} from 'react-router-dom'
-class UserList extends Component {
+import { Link } from "react-router-dom";
+
+export const UserList = () => {
+  const [userList, setUserList] = useState([]);
+
+
+useEffect(() => {
+  const fetchData = async () => {
+    const endpoint = `http://localhost:4000/api/users`;
+    fetch(endpoint)
+      .then((res) => {
+        return res.json();
+      })
+      .then((users) => {
+        setUserList(users.data.usuarios);
+      });
+  };
+  fetchData();
+}, []);
+
+return (
+  <div className="usersList">
+    <div className="title">
+      <h1>Usuarios en la base de datos</h1>
+    </div>
+    <table className="userTable">
+      <thead className="tableHead">
+        <tr id="head">
+          <th id="id">Id</th>
+          <th id="name">Nombre</th>
+          <th id="surname">Apellido</th>
+          <th id="email">Email</th>
+          <th id="email">Detalle</th>
+        </tr>
+      </thead>
+      {userList.map((user, index) => {
+        return <User {...user} key={index} />;
+      })}
+    </table>
+  </div>
+);
+
+
+}
+
+/* class UserList extends Component {
   constructor() {
     super();
     this.state = {
@@ -46,3 +90,4 @@ class UserList extends Component {
 }
 
 export default UserList;
+ */
