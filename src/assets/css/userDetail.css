@@ -1,7 +1,5 @@
 .userDetail{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-left: 20vw;

@@ -6,18 +6,15 @@ import {UserDetailContent} from "./UserDetailContent";
 export const User = (props) => {
   return (
     <React.Fragment>
-      <tbody>
+      <tbody >
         <tr>
           <td id="id">{props.id}</td>
           <td id="name">{props.nombre}</td>
           <td id="surname">{props.apellido}</td>
           <td id="email">{props.email}</td>
-          <td id="detail"><Link to={`userDetail/${props.id}`}>Ver</Link></td>
+        {/*   <td id="detail"><a>Ver</a></td> */}
         </tr>
       </tbody>
-      <Routes>
-        <Route path={'userDetail/:id'} component={UserDetailContent}/>
-      </Routes>
     </React.Fragment>
   );
 };

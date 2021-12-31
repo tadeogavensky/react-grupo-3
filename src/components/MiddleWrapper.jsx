@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { LastDataContent } from "./LastDataContent";
-import {TotalByCategoryContent} from "./TotalByCategoryContent";
-import '../assets/css/middleWrapper.css'
+import { TotalByCategoryContent } from "./TotalByCategoryContent";
+import "../assets/css/middleWrapper.css";
+import { ProductDetail } from "./ProductDetail";
 
 export const MiddleWrapper = () => {
+  const [productData, setProductData] = useState({});
   const [productName, setName] = useState("");
   const [productImg, setImg] = useState("");
+
+  const [selectedProduct, setSelectedProduct] = useState([]);
+  const [brand, setBrand] = useState("");
+  const [categorie, setCategorie] = useState("");
+  const [subcategorie, setSubcategorie] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,8 +22,15 @@ export const MiddleWrapper = () => {
           return res.json();
         })
         .then((product) => {
-          setName(product.data.nombre)
-          setImg(product.data.imagen)
+          if (!product.Error) {
+            setProductData(product.data);
+            setName(product.data.nombre);
+            setImg(product.data.imagen);
+          } else {
+            setName("");
+            setImg("");
+            setProductData({});
+          }
         });
     };
 
@@ -24,18 +38,22 @@ export const MiddleWrapper = () => {
   }, []);
 
   return (
-    <div className="middleWrapper">
-      <LastDataContent
-        dato={"producto"}
-        imagen={productImg}
-        nombre={productName}
-      />
-      <TotalByCategoryContent/>
-    </div>
+    <React.Fragment>
+     <div id="lastDetail">
+       
+      </div>
+
+      <div className="middleWrapper">
+          <LastDataContent
+            dato={"producto"}
+            imagen={productImg}
+            nombre={productName}
+          />
+        <TotalByCategoryContent />
+      </div>
+    </React.Fragment>
   );
-
-
-}
+};
 /* 
 class MiddleWrapper extends Component {
   constructor() {

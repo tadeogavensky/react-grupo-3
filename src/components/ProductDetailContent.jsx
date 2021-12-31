@@ -1,29 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ProductDetail } from "./ProductDetail";
 import propTypes from "prop-types";
 import "../assets/css/productDetailContent.css";
+import {Context} from './Context';
+import ProductsList from "./ProductsList";
+import { useParams } from "react-router-dom";
 
-export const ProductDetailContent = (props) => {
+
+export const ProductDetailContent = () => {
+
+  const id = useParams();
+  console.log(`idProducto`, id.id)
+
   const [productData, setProduct] = useState({});
   const [brand, setBrand] = useState("");
   const [categorie, setCategorie] = useState("");
   const [subcategorie, setSubcategorie] = useState("");
 
+
+
   useEffect(() => {
-    const fetchData = async () => {
+    
+    const fetchData = () => {
       const endpoint = `http://localhost:4000/api/products/detail/1`;
+      console.log(`endpoint`, endpoint)
       fetch(endpoint)
         .then((res) => {
           return res.json();
         })
         .then((product) => {
-          setProduct(product.data);
-          setBrand(product.data.marca);
-          setCategorie(product.data.categoria);
-          setSubcategorie(product.data.subcategoria);
-          console.log(`brand`, brand.nombre);
-          console.log(`categorie`, categorie.nombre);
-          console.log(`subcategorie`, subcategorie.nombre);
+          console.log(`product`, product)
+          if (!product.Error) {
+            
+            setProduct(product.data);
+            setBrand(product.data.marca);
+            setCategorie(product.data.categoria);
+            setSubcategorie(product.data.subcategoria);
+          } else {
+            setProduct({});
+            setBrand("");
+            setCategorie("");
+            setSubcategorie("");
+          }
         });
     };
 
@@ -31,12 +49,14 @@ export const ProductDetailContent = (props) => {
   }, []);
 
   ProductDetailContent.propTypes = {
-    id: propTypes.number,
+    id: propTypes.number
   };
 
   return (
-    <div className="productDetailContent">
+    <div  className="productDetailContent">
+    
       <ProductDetail
+        id={productData.id}
         nombre={productData.nombre}
         descripcion={productData.descripcion}
         precio={productData.precio}

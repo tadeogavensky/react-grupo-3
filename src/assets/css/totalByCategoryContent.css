@@ -1,14 +1,18 @@
-.totalByCategoryContent{
+.totalByCategoryContent {
     display: flex;
     flex-direction: column;
     text-align: start;
     background-color: white;
-    align-self: center;
     height: 100%;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    
+
 }
-.totalByCategoryContent .title{
+
+.totalByCategoryContent .content{
+    padding-top: 5vh;
+}
+
+.totalByCategoryContent .title {
     border-bottom: 1px solid #e3e6f0;
     background-color: #f8f9fc;
     text-align: start;
@@ -20,7 +24,7 @@
     padding-right: 1vw;
 }
 
-.totalByCategoryContent .title p{
+.totalByCategoryContent .title p {
     font-size: 20px;
     font-weight: 600;
 }

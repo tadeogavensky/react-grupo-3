@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { Product } from "./Product";
-import { Route, Link, Routes } from "react-router-dom";
-import { ProductDetailContent } from "./ProductDetailContent";
 import "../assets/css/productList.css";
+import propTypes from "prop-types";
+import { ProductDetail } from "./ProductDetail";
 
-export const ProductsList = () => {
-  let next = 1;
-  let previous = 1;
-  const page = 0;
-
+export default function ProductsList() {
   const [productsList, setProductsList] = useState([]);
   const [nextProducts, setNextProducts] = useState([]);
   const [previousProducts, setPreviousProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState("hola");
+
+  const [selectedProduct, setSelectedProduct] = useState([]);
+  const [brand, setBrand] = useState("");
+  const [categorie, setCategorie] = useState("");
+  const [subcategorie, setSubcategorie] = useState("");
 
   useEffect(() => {
+    const page = 0;
     const fetchData = async () => {
       const endpoint = `http://localhost:4000/api/products/list?page=${page}`;
       fetch(endpoint)
@@ -22,17 +23,22 @@ export const ProductsList = () => {
           return res.json();
         })
         .then((products) => {
-          setProductsList(products.data);
-          setPreviousProducts(products.meta.previousPage);
-          setNextProducts(products.meta.nextPage);
+          if (!products.Error) {
+            setProductsList(products.data);
+            setPreviousProducts(products.meta.previousPage);
+            setNextProducts(products.meta.nextPage);
+          } else {
+            setProductsList([]);
+            setPreviousProducts([]);
+            setNextProducts([]);
+          }
         });
-      }
-
+    };
 
     fetchData();
   }, []);
 
-  const previousPage = async () =>{
+  const previousPage = async () => {
     fetch(previousProducts)
       .then((res) => {
         return res.json();
@@ -43,9 +49,9 @@ export const ProductsList = () => {
         setNextProducts(products.meta.nextPage);
       })
       .catch((error) => console.log(error));
-  }
+  };
 
- const nextPage = async () => {
+  const nextPage = async () => {
     fetch(nextProducts)
       .then((res) => {
         return res.json();
@@ -56,46 +62,82 @@ export const ProductsList = () => {
         setNextProducts(products.meta.nextPage);
       })
       .catch((error) => console.log(error));
-  }
+  };
 
+  const productDetail = async (id) => {
+    let p = document.getElementById("pd");
+    let l = document.getElementById('lastDetail')
+ 
+    p.style.display='block'
+    l.style.display='none'
+    
+    console.log(`id`, id)
+
+    fetch(`http://localhost:4000/api/products/detail/${id}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((product) => {
+        if (!product.Error) {
+          setSelectedProduct(product.data);
+          setBrand(product.data.marca);
+          setCategorie(product.data.categoria);
+          setSubcategorie(product.data.subcategoria);
+        } 
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
-    <div className="productsList">
-      <div className="title">
-        <h1>Productos en la base de datos</h1>
-      </div>
-      <div className="display">
-        <div className="grid">
-          {productsList.map((product, index) => {
-            return (
-              <Link
-                to={`productDetail/${productsList[index].id}`}
-                key={index}
-              >
-                <Product
-                  {...product}
-                  key={index}
-                 /*  selectedProduct={selectedProduct} */
-                />
-              </Link>
-            );
-          })}
-        </div>
-        <div className="meta">
-          <p onClick={() => previousPage()}>Atrás</p>
-          <p onClick={() => nextPage()}>Siguiente</p>
-        </div>
-      </div>
-      <Routes>
-        <Route
-          path={`productDetail/${ProductsList.id}`}
-          render={() => (
-            <ProductDetailContent {...selectedProduct} />
-          )}
+    <React.Fragment>
+      <div className="productDetailHead">
+        <ProductDetail 
+          id={selectedProduct.id}
+          nombre={selectedProduct.nombre}
+          descripcion={selectedProduct.descripcion}
+          precio={selectedProduct.precio}
+          marca={brand.nombre}
+          categoria={categorie.nombre}
+          subcategoria={subcategorie.nombre}
+          imagen={selectedProduct.imagen}
         />
-      </Routes>
-    </div>
+      </div>
+      <div className="productsList">
+        <div className="title">
+          <h1>Productos en la base de datos</h1>
+        </div>
+        <div className="display">
+          <div className="grid">
+            {
+            
+            productsList.map((product, index) => {
+              return (
+                <a
+                  onClick={() => productDetail(productsList[index].id)}
+                  key={index}
+                >
+                  <Product
+                    id={productsList[index].id}
+                    {...product}
+                    key={index}
+                    /*  selectedProduct={selectedProduct} */
+                  />
+                </a>
+              );
+            })}
+          </div>
+          <div className="meta">
+            <p onClick={() => previousPage()}>Atrás</p>
+            <p onClick={() => nextPage()}>Siguiente</p>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
   );
+
+  ProductsList.propTypes = {
+    id: propTypes.number,
+  };
 }
 
 /* class ProductsList extends Component {

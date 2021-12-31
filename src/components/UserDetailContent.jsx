@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import propTypes from "prop-types";
 import { UserDetail } from "./UserDetail";
+import { useParams } from "react-router-dom";
+
 
 export const UserDetailContent = (props) => {
   const [userData, setUser] = useState({});
   const [role, setRole] = useState({});
-
+  const idUser = useParams();
 useEffect(() => {
   const fetchData = async () => {
     const endpoint = `http://localhost:4000/api/users/detail/1`;
@@ -14,8 +16,14 @@ useEffect(() => {
         return res.json();
       })
       .then((user) => {
-        setUser(user.data);
-        setRole(user.data.rol);
+        if (!user.Error) {
+          setUser(user.data);
+          setRole(user.data.rol);
+        } else {
+          setUser({});
+          setRole({});
+        }
+       
       });
   };
 

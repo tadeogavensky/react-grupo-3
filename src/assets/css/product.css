@@ -14,3 +14,7 @@
     overflow: hidden;
     padding-left: 1vw;
 }
+
+.product p:hover{
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import "../assets/css/userDetail.css";
 export const UserDetail = (props) => {
   return (
-    <div className="userDetail">
+    <div id="ud" className="userDetail">
       <img src={props.imagen} alt=""></img>
       <div className="userInfo">
         <div className="accountData">

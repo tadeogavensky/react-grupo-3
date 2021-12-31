@@ -7,13 +7,13 @@ import brandIcon from "../assets/img/brandIcon.png";
 import userIcon from "../assets/img/userIcon.png";
 
 export const TopBar = () => {
-  const [productLength, setProductLength] = useState([0]);
-  const [categorieLength, setCategorieLength] = useState([0]);
-  const [brandLength, setBrandLength] = useState([0]);
+  const [productLength, setProductLength] = useState(0);
+  const [categorieLength, setCategorieLength] = useState(0);
+  const [brandLength, setBrandLength] = useState(0);
   /*   const [userLength, setUserLength] = useState(0); */
 
   useEffect(() => {
-    const fetchData = async => {    
+    const fetchData = (async) => {
       Promise.all([
         fetch("http://localhost:4000/api/products/totalProducts").then(
           (res) => {
@@ -32,17 +32,17 @@ export const TopBar = () => {
           return res.json();
         }),
       ]).then(([resProduct, resCategorie, resBrand, resUser]) => {
-        console.log(`resProduct`, resProduct.data);
-        console.log(`resCategorie`, resCategorie.data);
-        console.log(`resBrand`, resBrand.data);
-
-        setProductLength(resProduct.data);
-        setCategorieLength(resCategorie.data);
-        setBrandLength(resBrand.data);
-
-
+        if (!resProduct.Error || !resCategorie.Error || !resBrand.Error ) {
+          setProductLength(resProduct.data);
+          setCategorieLength(resCategorie.data);
+          setBrandLength(resBrand.data);
+        } else {
+          setProductLength(0);
+          setCategorieLength(0);
+          setBrandLength(0);
+        }
       });
-    }
+    };
 
     fetchData();
   }, []);

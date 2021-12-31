@@ -14,10 +14,7 @@ export const LastDataContent = (props) => {
             <div className="content">
                 <img src={props.imagen} alt=""></img>
                 <p className="dataName">{props.nombre}</p>
-               <Link to='/productDetail'><button className="btnDetail">Detalle del {props.dato}</button> </Link>
-               <Routes>
-                  <Route path='/productDetail' component={ProductDetailContent}></Route>
-               </Routes>
+               {/* <Link to='/productDetail'><button className="btnDetail">Detalle del {props.dato}</button> </Link> */}
             </div>
         </div>
   );
