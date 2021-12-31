@@ -1,7 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import {Route,Link, Routes} from 'react-router-dom'
-import ProductDetailContent from "./ProductDetailContent";
+import {ProductDetailContent} from "./ProductDetailContent";
 import "../assets/css/lastDataContent.css";
 
 

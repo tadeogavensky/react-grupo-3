@@ -3,11 +3,10 @@ import { Header } from "./Header";
 import TopBar from "./TopBar";
 import MiddleWrapper from "./MiddleWrapper";
 import ProductsList from "./ProductsList";
-import TotalByCategoryContent from "./TotalByCategoryContent";
 import UserList from "./UserList";
 import { Footer } from "./Footer";
-import ProductDetailContent from "./ProductDetailContent";
-import UserDetailContent from "./UserDetailContent";
+import {ProductDetailContent} from "./ProductDetailContent";
+import {UserDetailContent} from "./UserDetailContent";
 import "../assets/css/contentWrapper.css";
 
 export const ContentWrapper = () => {
@@ -16,8 +15,8 @@ export const ContentWrapper = () => {
       <Header />
       <TopBar />
       <MiddleWrapper />
-      <ProductDetailContent/>
       <ProductsList />
+      <ProductDetailContent/>
       <UserDetailContent/>
       <UserList/>
       <Footer/>

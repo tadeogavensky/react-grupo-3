@@ -1,42 +1,20 @@
-import React, {Component} from 'react'
-import '../assets/css/searchProduct.css'
-import propTypes from 'prop-types'
-class SearchProduct extends Component {
+import React, { Component } from "react";
+import "../assets/css/searchProduct.css";
+import propTypes from "prop-types";
+export const SearchProduct = (props) => {
+  return (
+    <div className="searchBar">
+      <form action="" method="get">
+        <input type="text" placeholder="Buscar..."></input>
+      </form>
+    </div>
+  );
+};
 
-    constructor() {
-        super();
-        this.state = {
-          productsSearched: [],
-        };
-      }
-    
-      componentDidMount(props){
-          fetch(`http://localhost:4000/api/products/search?like=`+props.like)
-          .then((res) => {
-            return res.json();
-          })
-          .then((products) => {
-            console.log(`products`, products)
-            this.setState({ productsSearched: products.data.productos });
-          })
-      }
+SearchProduct.propTypes = {
+  like: propTypes.string,
+};
 
-    return(props){
-    return (
-        <div className='searchBar'>
-            <input type="text" placeholder='Buscar...'>{props.like}</input>
-        </div>
-    )
-    }
-}
-
-SearchProduct.propTypes={
-    like: propTypes.string
-}
-
-SearchProduct.defaultProps={
-    like: 'Default',
-}
-
-
-export default SearchProduct
+SearchProduct.defaultProps = {
+  like: "Default",
+};

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Product } from "./Product";
 import {Route,Link, Routes} from 'react-router-dom';
-import ProductDetailContent from './ProductDetailContent';
+import {ProductDetailContent} from './ProductDetailContent';
 import "../assets/css/productList.css";
 let next = 1;
 let previous = 1;
@@ -11,9 +11,8 @@ class ProductsList extends Component {
     this.state = {
       productsList: [],
       nextProducts: [],
-      nextNextProcucts: [],
       previousProducts: [],
-      previousPreviousPage: [],
+      selectedProduct: 'hola'
     };
   }
 
@@ -55,7 +54,8 @@ class ProductsList extends Component {
       .catch((error) => console.log(error));
   }
 
-  render() {
+
+  render(props) {
     return (
       <div className="productsList">
         <div className="title">
@@ -65,8 +65,9 @@ class ProductsList extends Component {
           <div className="grid">
             {this.state.productsList.map((product, index) => {
               return (
-                <Link to={`productDetail/${this.state.productsList[index].id}`} key={index}>
-                  <Product {...product} key={index} />
+                
+                <Link to={`productDetail/${this.state.productsList[index].id}`} key={index} >
+                  <Product {...product} key={index} selectedProduct={this.state.selectedProduct}  />
                 </Link>
               );
             })}
@@ -77,7 +78,7 @@ class ProductsList extends Component {
           </div>
         </div>
         <Routes>
-            <Route path={`productDetail/${this.state.productsList.id}`} component={ProductDetailContent}/>
+            <Route path={`productDetail/${this.state.productsList.id}`} render={() => <ProductDetailContent {...this.state.selectedProduct} />} />
         </Routes>
       </div>
     );

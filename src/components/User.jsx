@@ -2,7 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import "../assets/css/user.css";
 import {Route,Link, Routes} from 'react-router-dom'
-import UserDetailContent from "./UserDetailContent";
+import {UserDetailContent} from "./UserDetailContent";
 export const User = (props) => {
   return (
     <React.Fragment>
@@ -16,7 +16,7 @@ export const User = (props) => {
         </tr>
       </tbody>
       <Routes>
-        <Route path={`userDetail/${props.id}`} params={props.id} component={UserDetailContent}/>
+        <Route path={'userDetail/:id'} component={UserDetailContent}/>
       </Routes>
     </React.Fragment>
   );
