@@ -10,12 +10,14 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     margin-bottom: 3vh;
 }
+   
 
 .display{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: max-content;
+    width: initial;
+    height: fit-content;
 }
 
 .productsList .grid{
@@ -41,12 +43,14 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
+   
 }
 
 .productsList .meta p{
     color: black;
     font-size: 20px;
+    
 }
 
 .productsList .meta p:hover{

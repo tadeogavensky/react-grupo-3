@@ -8,6 +8,8 @@ export const MiddleWrapper = () => {
   const [productData, setProductData] = useState({});
   const [productName, setName] = useState("");
   const [productImg, setImg] = useState("");
+  const [productDescription, setDescription] = useState("");
+
 
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [brand, setBrand] = useState("");
@@ -26,10 +28,19 @@ export const MiddleWrapper = () => {
             setProductData(product.data);
             setName(product.data.nombre);
             setImg(product.data.imagen);
+            setDescription(product.data.descripcion)
+            setBrand(product.data.marca.nombre)
+            setCategorie(product.data.categoria.nombre)
+            setSubcategorie(product.data.subcategoria.nombre)
+
           } else {
             setName("");
             setImg("");
             setProductData({});
+            setDescription("");
+            setBrand("");
+            setCategorie("")
+            setSubcategorie("")
           }
         });
     };
@@ -48,6 +59,10 @@ export const MiddleWrapper = () => {
             dato={"producto"}
             imagen={productImg}
             nombre={productName}
+            descripcion={productDescription}
+            marca={brand}
+            categoria={categorie}
+            subcategoria={subcategorie}
           />
         <TotalByCategoryContent />
       </div>

@@ -3,13 +3,15 @@
     flex-direction: column;
     text-align: start;
     background-color: white;
-    height: 100%;
+    height: 97%;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
 }
 
 .totalByCategoryContent .content{
-    padding-top: 5vh;
+    padding-top: 1vh;
+
+   
 }
 
 .totalByCategoryContent .title {

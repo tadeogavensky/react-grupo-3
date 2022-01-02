@@ -12,9 +12,10 @@
     margin-right: 6vw;
     margin-bottom: 5vh;
     padding-bottom: 5vh;
+    margin-top: 3vh;
     display: none;
 }
-.productDetailHead .metaHead {
+.metaHead {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -23,12 +24,11 @@
     padding-bottom: 0px;
 }
 
-.productDetailHead .metaHead #categorie {
+.metaHead #categorie {
     color: black;
     padding-right: 1vw;
 }
-
-.productDetailHead .metaHead #subcategorie {
+.metaHead #subcategorie {
     color: #ab191f;
     font-weight: bold;
     padding-left: 1vw;
